@@ -5,6 +5,7 @@ import { baseURL } from './config.js'
 
 // 添加请求拦截器，在发送请求之前做些什么(**具体查看axios文档**)--------------------------------------------
 axios.interceptors.request.use(function (config) {
+  // config.headers.accessToken = "gCxr2YcnmIFPaSj5";
   // 显示loading
   return config
 }, function (error) {
@@ -23,7 +24,7 @@ axios.interceptors.response.use(function (response) {
 })
 
 // 封装数据返回失败提示函数---------------------------------------------------------------------------
-function errorState (response) {
+function errorState(response) {
   // 隐藏loading
   // 如果http状态码正常，则直接返回数据
   if (response && (response.status === 200 || response.status === 304 || response.status === 400)) {
@@ -35,7 +36,7 @@ function errorState (response) {
 }
 
 // 封装数据返回成功提示函数---------------------------------------------------------------------------
-function successState (res) {
+function successState(res) {
   // 隐藏loading
   // 统一判断后端返回的错误码(错误码与后台协商而定)
   if (res.data.code === '000000') {
@@ -45,7 +46,7 @@ function successState (res) {
 }
 
 // 封装axios--------------------------------------------------------------------------------------
-function apiAxios (method, url, params) {
+function apiAxios(method, url, params) {
   let httpDefault = {
     method: method,
     baseURL: baseURL,
