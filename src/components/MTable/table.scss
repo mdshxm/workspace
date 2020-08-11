@@ -1,0 +1,30 @@
+.table {
+  width: 100%;
+  table-layout: fixed;
+  // border: 1px solid #000000;
+  border-collapse: collapse;
+}
+.my-table-head {
+  background: #f5f7fa;
+  color: #909399;
+  font-weight: 500;
+}
+.my-table-row {
+  background-color: #ffffff;
+}
+.my-table-row:hover {
+  background-color: #f5f7fa;
+}
+.my-table-cell {
+  padding: 12px 0;
+  line-height: 23px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 18px;
+  color: #000;
+  border: 1px solid #ebeef5;
+}
+.cell-item {
+  display: inline-block;
+  text-align: end;
+}

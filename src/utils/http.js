@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @Version: 2.0
+ * @Autor: hxm
+ * @Date: 2020-04-14 13:04:15
+ * @LastEditors: Do not edit
+ * @LastEditTime: 2020-08-04 08:48:22
+ */
 import axios from 'axios'
 import qs from 'qs'
 // 在config.js文件中统一存放一些公共常量，方便之后维护
@@ -71,14 +79,19 @@ function apiAxios(method, url, params) {
       })
   })
 }
+export{
+  axios
+}
 
 // 输出函数getAxios、postAxios、putAxios、delectAxios，供其他文件调用-----------------------------
 // Vue.js的插件应当有一个公开方法 install。这个方法的第一个参数是 Vue 构造器，第二个参数是一个可选的选项对象。
 export default {
   install: function (Vue) {
+    Vue.prototype.axios = axios
     Vue.prototype.getAxios = (url, params) => apiAxios('GET', url, params)
     Vue.prototype.postAxios = (url, params) => apiAxios('POST', url, params)
     Vue.prototype.putAxios = (url, params) => apiAxios('PUT', url, params)
     Vue.prototype.delectAxios = (url, params) => apiAxios('DELECT', url, params)
   }
 }
+
